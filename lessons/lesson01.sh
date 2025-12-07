@@ -35,7 +35,8 @@ docker ps -a
 f_pause
 
 echo "✅ hello-world 컨테이너 삭제 && hello-world 이미지 삭제"
-docker ps -a | grep hello-world | awk '{print$1}' | xargs docker rm && docker images | grep hello-world | awk '{print$1}' | xargs docker rmi
+echo "docker ps -a | grep hello-world | awk \'{print\$1}\' | xargs docker rm && docker images | grep hello-world | awk \'{print\$3}\' | xargs docker rmi"
+docker ps -a | grep hello-world | awk '{print$1}' | xargs docker rm && docker images | grep hello-world | awk '{print$3}' | xargs docker rmi
 f_pause
 
 echo "✅ docker ps -a # 어떤 컨테이너가 돌고 있는지 먼저 확인, -a: 모든 컨테이너를 보여줌"
@@ -78,15 +79,18 @@ open -a "Google Chrome" http://localhost:8080
 f_pause
 
 echo "✅ nginx web1 container stop"
+echo "docker stop web1"
 docker stop web1
 f_pause
 
 echo "✅ docker ps -a # 어떤 컨테이너가 돌고 있는지 먼저 확인, -a: 모든 컨테이너를 보여줌"
+echo "docker ps -a"
 docker ps -a
 f_pause
 
 echo "✅ nginx 컨테이너 삭제 && nginx 이미지 삭제"
-docker ps -a | grep nginx | awk '{print$1}' | xargs docker rm && docker images | grep nginx | awk '{print$1}' | xargs docker rmi
+echo "docker ps -a | grep nginx | awk \'{print\$1}\' | xargs docker rm && docker images | grep nginx | awk \'{print\$3}\' | xargs docker rmi"
+docker ps -a | grep nginx | awk '{print$1}' | xargs docker rm && docker images | grep nginx | awk '{print$3}' | xargs docker rmi
 f_pause
 
 echo "✅ docker ps -a # 어떤 컨테이너가 돌고 있는지 먼저 확인, -a: 모든 컨테이너를 보여줌"
