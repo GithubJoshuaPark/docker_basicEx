@@ -118,6 +118,11 @@ echo "✅ docker ps -a # 어떤 컨테이너가 돌고 있는지 먼저 확인, 
 docker ps -a
 f_pause
 
+echo
+echo "✅ docker logs my-node-app"
+docker logs my-node-app
+f_pause
+
 echo "✅ open -a \"Google Chrome\" http://localhost:3000"
 open -a "Google Chrome" http://localhost:3000
 f_pause
