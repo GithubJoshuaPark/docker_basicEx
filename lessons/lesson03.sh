@@ -8,16 +8,22 @@ echo
 # ▣ [2] 실행 중인 스크립트 경로 계산
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "▶ 스크립트 디렉터리: $SCRIPT_DIR"
+
 # tmp 디렉터리를 스크립트 이름 기반으로 생성
 TMP_DIR="$SCRIPT_DIR/tmp/$(basename "$0" .sh)"
 echo "▶ tmp 디렉터리: $TMP_DIR"
 mkdir -p "$TMP_DIR"
 
+# MYSQL_DATA_DIR 디렉터리를 스크립트 이름 기반으로 생성
+MYSQL_DATA_DIR="$SCRIPT_DIR/tmp/mysql_data"
+echo "▶ tmp 디렉터리: $MYSQL_DATA_DIR"
+mkdir -p "$MYSQL_DATA_DIR"
+
 source "$SCRIPT_DIR/utils.sh"
 
 cat <<'B'
 ========================================
- 레슨 03) volume / network 개념 배우기 (with mysql)
+ 레슨 03) volume 개념 배우기 (with mysql)
 ========================================
 B
 
@@ -32,16 +38,16 @@ docker ps -a | grep ubuntu | awk '{print$1}' | xargs docker stop | xargs docker 
 f_pause
 
 echo "1 mysql 컨테이너 실행 (volume)"
-echo "docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=cdcdcd0011 -p 3306:3306 -v \$TMP_DIR:/var/lib/mysql mysql:5.7"
+echo "docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=cdcdcd0011 -p 3306:3306 -v \$MYSQL_DATA_DIR:/var/lib/mysql mysql:5.7"
 echo "# 옵션 설명 짧게 정리하면:"
 echo "# -d : 백그라운드(detached) 실행"
 echo "# --name mysql : 컨테이너 이름을 mysql로 지정"
 echo "# -e MYSQL_ROOT_PASSWORD=cdcdcd0011 : 환경 변수 설정"
 echo "# -p 3306:3306 : 호스트 3306 포트 → 컨테이너 3306 포트 연결"
-echo "# -v \$TMP_DIR:/var/lib/mysql : 컨테이너 내부 /var/lib/mysql 폴더를 호스트의 \$TMP_DIR 폴더와 연결"
+echo "# -v \$MYSQL_DATA_DIR:/var/lib/mysql : 컨테이너 내부 /var/lib/mysql 폴더를 호스트의 \$MYSQL_DATA_DIR 폴더와 연결"
 echo "# mysql:5.7 : 사용할 이미지 이름"
 
-docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=cdcdcd0011 -p 3306:3306 -v $TMP_DIR:/var/lib/mysql mysql:5.7
+docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=cdcdcd0011 -p 3306:3306 -v $MYSQL_DATA_DIR:/var/lib/mysql mysql:5.7
 f_pause
 
 echo "✅ docker ps -a # 어떤 컨테이너가 돌고 있는지 먼저 확인, -a: 모든 컨테이너를 보여줌"
@@ -76,9 +82,9 @@ echo "docker volume ls"
 docker volume ls
 f_pause
 
-echo "6. $TMP_DIR volume 이용해서 새로운 mysql 컨테이너 실행"
-echo "docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=cdcdcd0011 -p 3306:3306 -v \$TMP_DIR:/var/lib/mysql mysql:5.7"
-docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=cdcdcd0011 -p 3306:3306 -v $TMP_DIR:/var/lib/mysql mysql:5.7
+echo "6. $MYSQL_DATA_DIR volume 이용해서 새로운 mysql 컨테이너 실행"
+echo "docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=cdcdcd0011 -p 3306:3306 -v \$MYSQL_DATA_DIR:/var/lib/mysql mysql:5.7"
+docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=cdcdcd0011 -p 3306:3306 -v $MYSQL_DATA_DIR:/var/lib/mysql mysql:5.7
 f_pause
 
 echo "✅ docker ps -a # 어떤 컨테이너가 돌고 있는지 먼저 확인, -a: 모든 컨테이너를 보여줌"

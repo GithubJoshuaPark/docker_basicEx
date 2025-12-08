@@ -16,7 +16,7 @@ source "$SCRIPT_DIR/utils.sh"
 
 cat <<'B'
 ========================================
- 레슨 06) Spring Boot + MySQL Docker 통합 실습
+ 레슨 06) docker-compose로 하나의 구성 파일에서 app+db 자동 실행
 ========================================
 B
 

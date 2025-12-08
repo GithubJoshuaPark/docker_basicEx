@@ -16,7 +16,7 @@ source "$SCRIPT_DIR/utils.sh"
 
 cat <<'B'
 ========================================
- 레슨 07) Spring Boot + MySQL Docker 통합 실습
+ 레슨 07) React 앱을 Docker로 실행해서 Nginx로 배포하기
 ========================================
 B
 

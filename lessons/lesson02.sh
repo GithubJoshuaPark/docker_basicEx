@@ -164,6 +164,7 @@ echo "# 🐳 : -p (port) 옵션을 사용하면 컨테이너 내부 포트가 �
 echo "# 🐳 : -it (interactive) 옵션을 사용하면 컨테이너 내부 터미널을 사용할 수 있음"
 echo "# 🐳 : -t (terminal) 옵션을 사용하면 컨테이너 내부 터미널을 사용할 수 있음"
 echo "# 🐳 : -e (environment) 옵션을 사용하면 환경 변수를 설정할 수 있음"
+echo "# 🐳 : -d (detached) 옵션을 사용하면 백그라운드에서 실행할 수 있음"
 
 docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=cdcdcd0011 -p 3306:3306 mysql:5.7
 f_pause
