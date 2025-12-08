@@ -10,13 +10,13 @@ source "$SCRIPT_DIR/lessons/utils.sh"
 
 # 메뉴 목록
 titles=(
-    "($(get_random_emoji)) container 생성/중지/삭제 완전 마스터"
-    "($(get_random_emoji)) nginx, ubuntu, redis, mysql 실습"
-    "($(get_random_emoji)) volume 개념 배우기"
-    "($(get_random_emoji)) network 개념 배우기"
+    "($(get_random_emoji)) container 생성/중지/삭제"
+    "($(get_random_emoji)) nginx, ubuntu, redis, mysql 사용"
+    "($(get_random_emoji)) volume 사용"
+    "($(get_random_emoji)) network 사용"
     "($(get_random_emoji)) Dockerfile (커스텀 이미지) 직접 만들기"
     "($(get_random_emoji)) docker-compose로 하나의 구성 파일에서 app+db 자동 실행"
-    "($(get_random_emoji)) Spring Boot + MySQL Docker 통합 실습"
+    "($(get_random_emoji)) Spring Boot + MySQL Docker 통합 사용"
     "($(get_random_emoji)) React 앱을 Docker로 실행해서 Nginx로 배포하기"
 )
 

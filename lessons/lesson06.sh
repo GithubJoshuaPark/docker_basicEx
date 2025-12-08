@@ -71,6 +71,23 @@ echo "▶ compose 파일 내용:"
 cat "$COMPOSE_FILE"
 f_pause
 
+echo "docker compose -f $COMPOSE_FILE up -d"
+docker compose -f $COMPOSE_FILE up -d
+f_pause
+
+echo "docker compose -f $COMPOSE_FILE ps"
+docker compose -f $COMPOSE_FILE ps
+f_pause
+
+echo "docker compose -f $COMPOSE_FILE logs"
+docker compose -f $COMPOSE_FILE logs
+f_pause
+
+echo "docker compose -f $COMPOSE_FILE down"
+echo "containers and networks will be removed"
+docker compose -f $COMPOSE_FILE down
+f_pause
+
 echo "========================"
 echo "$(basename "$0") End"
 echo "========================"
