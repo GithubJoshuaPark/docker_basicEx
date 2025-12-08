@@ -14,7 +14,9 @@ titles=(
     "($(get_random_emoji)) nginx, ubuntu, redis, mysql 실습"
     "($(get_random_emoji)) volume / network 개념 배우기"
     "($(get_random_emoji)) Dockerfile 직접 만들기"
-    "($(get_random_emoji)) docker-compose로 여러 서비스 구성하기"
+    "($(get_random_emoji)) docker-compose로 하나의 구성 파일에서 app+db 자동 실행"
+    "($(get_random_emoji)) Spring Boot + MySQL Docker 통합 실습"
+    "($(get_random_emoji)) React 앱을 Docker로 실행해서 Nginx로 배포하기"
 )
 
 # 메뉴 출력
@@ -33,13 +35,13 @@ print_menu() {
 # 루프
 while true; do
   print_menu
-  read -rp "Docker 학습 메뉴에서 선택( 1 ~ 5, q to exit): " sel
+  read -rp "Docker 학습 메뉴에서 선택( 1 ~ 7, q to exit): " sel
   case "$sel" in
     q|Q)
       echo "학습을 종료합니다. 👋"
       exit 0
       ;;
-    1|2|3|4|5)
+    1|2|3|4|5|6|7)
       file="$(printf "%s/lesson%02d.sh" "$LESSON_DIR" "$sel")"
       if [[ -x "$file" ]]; then
         echo

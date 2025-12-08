@@ -48,10 +48,12 @@ docker info
   2) (✨) nginx, ubuntu, redis, mysql 실습
   3) (✅️) volume / network 개념 배우기
   4) (⚙️) Dockerfile 직접 만들기
-  5) (💡) docker-compose로 여러 서비스 구성하기
+  5) (💡) docker-compose로 하나의 구성 파일에서 app+db 자동 실행
+  6) (⚠️) Spring Boot + MySQL Docker 통합 실습 (Spring Boot + MySQL + Dockerfile + docker-compose)
+  7) (⚠️) React 앱을 Docker로 실행해서 Nginx로 배포하기 (React + Nginx + Dockerfile + docker-compose)
 ------------------------------
  q | Q to exit) 종료
 ------------------------------
-Docker 학습 메뉴에서 선택( 1 ~ 5, q to exit):
+Docker 학습 메뉴에서 선택( 1 ~ 7, q to exit):
 
 ```

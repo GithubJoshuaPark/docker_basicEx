@@ -45,6 +45,10 @@ echo "# -d : 백그라운드(detached) 실행"
 echo "# --name ubuntu : 컨테이너 이름을 ubuntu로 지정"
 echo "# ubuntu:22.04 : 사용할 이미지 이름"
 echo "# sleep infinity : 컨테이너가 계속 실행되도록 sleep infinity"
+echo "# 🐳 : -v (volumn) 옵션을 사용하면 컨테이너 내부 파일 시스템이 호스트 파일 시스템과 연결됨"
+echo "# 🐳 : -p (port) 옵션을 사용하면 컨테이너 내부 포트가 호스트 포트와 연결됨"
+echo "# 🐳 : -it (interactive) 옵션을 사용하면 컨테이너 내부 터미널을 사용할 수 있음"
+echo "# 🐳 : -t (terminal) 옵션을 사용하면 컨테이너 내부 터미널을 사용할 수 있음"
 
 docker run -d --name ubuntu ubuntu:22.04 sleep infinity
 f_pause
@@ -155,6 +159,12 @@ echo "# --name mysql : 컨테이너 이름을 mysql로 지정"
 echo "# -e MYSQL_ROOT_PASSWORD=cdcdcd0011 : 환경 변수 설정"
 echo "# -p 3306:3306 : 호스트 3306 포트 → 컨테이너 3306 포트 연결"
 echo "# mysql:5.7 : 사용할 이미지 이름"
+echo "# 🐳 : -v (volumn) 옵션을 사용하면 컨테이너 내부 파일 시스템이 호스트 파일 시스템과 연결됨"
+echo "# 🐳 : -p (port) 옵션을 사용하면 컨테이너 내부 포트가 호스트 포트와 연결됨"
+echo "# 🐳 : -it (interactive) 옵션을 사용하면 컨테이너 내부 터미널을 사용할 수 있음"
+echo "# 🐳 : -t (terminal) 옵션을 사용하면 컨테이너 내부 터미널을 사용할 수 있음"
+echo "# 🐳 : -e (environment) 옵션을 사용하면 환경 변수를 설정할 수 있음"
+
 docker run -d --name mysql -e MYSQL_ROOT_PASSWORD=cdcdcd0011 -p 3306:3306 mysql:5.7
 f_pause
 
