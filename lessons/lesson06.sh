@@ -41,6 +41,7 @@ echo "docker compose up -d 한 번으로 둘 다 실행"
 echo "docker compose down 한 번으로 둘 다 종료/삭제"
 f_pause
 
+echo "✅ compose 파일 생성"
 echo
 
 cat > "$COMPOSE_FILE" <<B
@@ -67,25 +68,69 @@ services:
     command: ["sleep", "infinity"]
 B
 
-echo "▶ compose 파일 내용:"
+echo "✅ compose 파일 내용:"
 cat "$COMPOSE_FILE"
 f_pause
 
-echo "docker compose -f $COMPOSE_FILE up -d"
+echo "✅ docker network rm lesson06_default"
+echo "docker network ls | grep lesson06 | awk '{print\$1}' | xargs docker network rm || true"
+docker network ls | grep lesson06 | awk '{print$1}' | xargs docker network rm || true
+f_pause
+
+echo "✅ ubuntu | mysql 컨테이너 삭제 && ubuntu | mysql 이미지 삭제"
+echo "docker ps -a | grep -E 'ubuntu|mysql' | awk '{print\$1}' | xargs docker stop | xargs docker rm && docker images | grep -E 'ubuntu|mysql' | awk '{print\$3}' | xargs docker rmi || true"
+docker ps -a | grep -E 'ubuntu|mysql' | awk '{print$1}' | xargs docker stop | xargs docker rm && docker images | grep -E 'ubuntu|mysql' | awk '{print$3}' | xargs docker rmi || true
+f_pause
+
+echo "✅ docker compose -f $COMPOSE_FILE up -d"
 docker compose -f $COMPOSE_FILE up -d
 f_pause
 
-echo "docker compose -f $COMPOSE_FILE ps"
+echo "✅ docker compose -f $COMPOSE_FILE ps"
 docker compose -f $COMPOSE_FILE ps
 f_pause
 
-echo "docker compose -f $COMPOSE_FILE logs"
+echo "✅ docker compose -f $COMPOSE_FILE logs"
 docker compose -f $COMPOSE_FILE logs
 f_pause
 
-echo "docker compose -f $COMPOSE_FILE down"
-echo "containers and networks will be removed"
+echo "✅ docker exec -it ubuntu bash // ubuntu 컨테이너 내부로 들어가기"
+echo "(ubuntu 컨테이너 내부에서 mysql-client 설치)"
+echo "apt update && apt install -y mysql-client"
+echo "mysql -h mysql -uroot -pcdcdcd0011"
+echo "# 같은 네트워크 컨테이너끼리는 이름(mysql)으로 서로 접근"
+echo "mysql -h(host server name) mysql(컨테이너 이름) -uroot -pcdcdcd0011"
+echo "mysql> show databases;"
+echo "mysql> use testdb;"
+echo "mysql> show tables;"
+echo "mysql> select * from testtable;"
+echo "mysql> exit"
+echo "exit"
+
+docker exec -it ubuntu bash
+f_pause
+
+echo "✅ docker compose -f $COMPOSE_FILE down"
+echo "(containers and networks will be removed, but images are not removed)"
 docker compose -f $COMPOSE_FILE down
+f_pause
+
+echo "✅ ubuntu | mysql 컨테이너 삭제 && ubuntu | mysql 이미지 삭제"
+echo "docker images | grep -E 'ubuntu|mysql' | awk '{print\$3}' | xargs docker rmi || true"
+docker images | grep -E 'ubuntu|mysql' | awk '{print$3}' | xargs docker rmi || true
+f_pause
+
+echo "✅ docker network ls"
+docker network ls
+f_pause
+
+# echo "✅ docker network rm lesson06_default"
+# echo "docker network ls | grep lesson06 | awk '{print\$1}' | xargs docker network rm || true"
+# docker network ls | grep lesson06 | awk '{print$1}' | xargs docker network rm || true
+# f_pause
+
+echo "✅ docker ps -a # 어떤 컨테이너가 돌고 있는지 먼저 확인, -a: 모든 컨테이너를 보여줌"
+docker ps -a
 f_pause
 
 echo "========================"
