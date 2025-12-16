@@ -27,9 +27,12 @@ docker info
 
 1️⃣ [container 생성/중지/삭제 완전 마스터](./lessons/lesson01.sh)<br>
 2️⃣ [nginx, ubuntu, redis, mysql 실습](./lessons/lesson02.sh)<br>
-3️⃣ [volume / network 개념 배우기](./lessons/lesson03.sh)<br>
-4️⃣ [Dockerfile 직접 만들기](./lessons/lesson04.sh)<br>
-5️⃣ [docker-compose로 여러 서비스 구성하기](./lessons/lesson05.sh)
+3️⃣ [volume 개념 배우기](./lessons/lesson03.sh)<br>
+4️⃣ [network 개념 배우기](./lessons/lesson04.sh)<br>
+5️⃣ [Dockerfile 직접 만들기](./lessons/lesson05.sh)<br>
+6️⃣ [docker-compose로 여러 서비스 구성하기](./lessons/lesson06.sh)<br>
+7️⃣ [Spring Boot + MySQL Docker 통합 사용](./lessons/lesson07.sh)<br>
+8️⃣ [React 앱을 Docker로 실행해서 Nginx로 배포하기](./lessons/lesson08.sh)
 
 <br>
 🙌 학습방법
